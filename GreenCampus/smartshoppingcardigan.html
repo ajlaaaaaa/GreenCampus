@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cardigan-Product Page</title>
+  <style>
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      background-color: #869e74;      
+      font-family: Arial, sans-serif; 
+      color: #000;                     
+      line-height: 1.4;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    header {
+      background-color: #869e74;
+      border-bottom: 2px solid #333;  
+      padding: 10px 40px;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    
+    .logo img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin-left: 20px;
+      flex: 1;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links li a {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #000;
+      transition: background-color 0.2s;
+    }
+
+    .nav-links li a:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* “Products” is active */
+    .nav-links .active a {
+      background-color: #ffffff;
+    }
+
+    
+    .auth-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .auth-buttons .signin {
+      background-color: #ffffff;
+      color: #000;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .auth-buttons .signin:hover {
+      background-color: #f0f0f0;
+    }
+
+    .auth-buttons .register {
+      background-color: #333333;
+      color: #ffffff;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .auth-buttons .register:hover {
+      background-color: #222222;
+    }
+
+    
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .product-section {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    
+    .product-image {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    
+    .product-info {
+      flex: 1;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .product-info h1 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .product-info .tag {
+      display: inline-block;
+      background-color: #8db478;
+      color: #000;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .product-info .price {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .product-info .price .currency {
+      font-size: 18px;
+      vertical-align: super;
+      margin-right: 2px;
+    }
+
+    .product-info .short-desc {
+      font-size: 16px;
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+    .product-info .condition-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .product-info .condition-group label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .product-info .condition-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ffffff;
+      border-radius: 8px;
+      background-color: #8db478;
+      color: #000;
+      appearance: none;
+    }
+
+    .product-info .buy-button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      background-color: #ffffff;
+      color: #000;
+      border: 1px solid #000;
+      border-radius: 8px;
+      transition: background-color 0.2s;
+      margin-top: 10px;
+    }
+
+    .product-info .buy-button:hover {
+      background-color: #f0f0f0;
+    }
+
+    
+    .accordion {
+      border: 1px solid #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #869e74;
+    }
+
+    .accordion-header {
+      padding: 12px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .accordion-header::after {
+      content: "▾";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+    }
+
+    .accordion-content {
+      padding: 12px 16px;
+      border-top: 1px solid #ffffff;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #000;
+    }
+
+    
+    .reviews-section {
+      padding: 0 0 40px 0;
+    }
+
+    .reviews-section h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .reviews {
+      display: flex;
+      gap: 20px;
+    }
+
+    .review-card {
+      background-color: #869e74;
+      border: 1px solid #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .review-stars {
+      margin-bottom: 10px;
+    }
+
+    .review-stars span {
+      font-size: 16px;
+      color: #000;
+      margin-right: 4px;
+    }
+
+    .review-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .review-body {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .review-author img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-text {
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    
+    footer {
+      background-color: #869e74;
+      border-top: 2px solid #333;
+      padding: 20px 40px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer-col {
+      flex: 1;
+    }
+
+    .footer-col h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding-left: 0;
+      color: #000;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    
+
+   
+    
+  </style>
+</head>
+
+<body>
+  
+  <header>
+    <div class="nav-container">
+      
+      <div class="logo">
+        <img src="logo.jpeg" alt="Logo" />
+      </div>
+
+      
+      <ul class="nav-links">
+        <li class="active"><a href="#">Products</a></li>
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+
+      
+      <div class="auth-buttons">
+        <a href="login.html" class="login">Log In</a>
+        <a href="signup.html" class="register">Register</a>
+      </div>
+    </div>
+  </header>
+
+  
+  <main>
+    
+    <div class="product-section">
+      
+      <div class="product-image">
+        <img src="cardigan.jpeg" alt="Cardigan" />
+      </div>
+
+      
+      <div class="product-info">
+        <h1>Cardigan</h1>
+        <div class="tag">Tag</div>
+        <div class="price">
+          <span class="currency">RM</span>16.00
+        </div>
+        <div class="short-desc">
+          Beautiful Cardigan in great condition
+        </div>
+
+        <div class="condition-group">
+          <label for="condition">Condition</label>
+          <select id="condition" name="condition">
+            <option>Like New</option>
+          </select>
+        </div>
+
+        <button class="buy-button">BUY</button>
+
+        <div class="accordion">
+          <div class="accordion-header">
+            Description :
+          </div>
+          <div class="accordion-content">
+            This cardigan is perfect for keeping warm during the chilly seasons. Ideal for students looking for stylish yet affordable clothing options.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <section class="reviews-section">
+      <h2>Latest reviews</h2>
+      <div class="reviews">
+       
+        <div class="review-card">
+          <div>
+            <div class="review-stars">
+              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            </div>
+            <div class="review-title">affordable</div>
+            <div class="review-body">This cardigan is a great find!</div>
+          </div>
+          <div class="review-author">
+            <div class="author-text">
+              <span>Sofia</span>
+              <span>30 Aug 2024</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="review-card">
+          <div>
+            <div class="review-stars">
+              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            </div>
+            <div class="review-title">Like a new one!</div>
+            <div class="review-body">This cardigan feels just like new!</div>
+          </div>
+          <div class="review-author">
+            <div class="author-text">
+              <span>Aina</span>
+              <span>2 Sept 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Card 3 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">
+              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            </div>
+            <div class="review-title">Comfy</div>
+            <div class="review-body">This cardigan is so comfy!</div>
+          </div>
+          <div class="review-author">
+            <div class="author-text">
+              <span>Aisyah</span>
+              <span>4 Sept 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+  <footer>
+    <div class="footer-container">
+      
+      <div class="footer-col">
+        <h3>Stay Connected With Us</h3>
+  
+      </div>
+
+     
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Marketplace</a></li>
+          <li><a href="#">Sustainability Tips</a></li>
+          <li><a href="#">Community Forum</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">Our Mission</a></li>
+          <li><a href="#">SDG 13 Information</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
