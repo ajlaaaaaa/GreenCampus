@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #d4e2c4;
+      color: #2e3d1f;
+    }
+    header {
+      background-color: #4d6d41;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+    }
+    header img {
+      height: 30px;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .auth-buttons button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .SignIn { background-color: #2e3d1f; color: white; }
+    .register { background-color: #8bc34a; color: white; }
+
+    .hero {
+      position: relative;
+      text-align: center;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+    }
+    .hero h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #e9f5d3;
+      font-size: 48px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .content {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .intro {
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #e0f1cb;
+      border: 1px solid #aac78a;
+      border-radius: 8px;
+      padding: 15px;
+    }
+    .card img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 40px;
+      background-color: #4d6d41;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    footer div {
+      margin: 10px 0;
+    }
+    footer a {
+      color: white;
+      display: block;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logogreencampus.jpg" alt="Logo">
+    <nav>
+      <a href="#">Marketplace</a>
+      <a href="#">Community</a>
+      <a href="#">Resources</a>
+      <a href="#">Orders</a>
+      <a href="#">Checkout</a>
+    </nav>
+    <div class="auth-buttons">
+      <button class="Sign In">Sign In</button>
+      <button class="register">Register</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <img src="green campus.jpg" alt="Green Campus Banner">
+    <h1>Green Campus</h1>
+  </div>
+
+  <div class="content">
+    <div class="intro">
+      <h2>Green Learning Hub</h2>
+      <p>Greetings from the GreenCampus Resource Center.<br>
+        Learn what you need to get started on your sustainable path. This is your one-stop shop for sustainable living, offering everything from eco-living guidelines to useful green suggestions.
+      </p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <img src="eco tips.jpg" alt="Eco Tips">
+        <h3>Eco Tips</h3>
+        <p>Learn easy ways to lessen your influence on the environment, such as reducing the amount of plastic you use, eating more plants, using reusable water bottles, and using mass transit. For students who are new to sustainability and want to get involved but aren't sure how to get started, these simple suggestions are ideal.</p>
+      </div>
+      <div class="card">
+        <img src="campus guides.jpg" id= "card"  height="500px" width="600px">
+        <h3>Campus Guides</h3>
+        <p>Examine sustainable strategies existing GreenCampus universities are using. Discover how they’ve improved operations, engaged green student events, or redesigned buildings and energy systems. These resources will inspire students who want to encourage climate action in their local communities.</p>
+      </div>
+      <div class="card">
+        <img src="smart shopping.jpg" alt="Smart Shopping">
+        <h3>Smart Shopping</h3>
+        <p>Learn how to make wiser purchasing decisions. You can minimize waste, buy in bulk, purchase locally, and select items with little packaging or made from recycled materials. These sensible purchases support the ideals of ethical and sustainable principles.</p>
+      </div>
+      <div class="card">
+        <img src="green transport.jpg" alt="Green Transport">
+        <h3>Green Transport</h3>
+        <p>Get advice on how to move around your campus in a sustainable way. This includes cycling, walking, using public transport, or carpooling. This helps reduce greenhouse gas emissions, decrease traffic congestion, and lessen your carbon footprint.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <p>Stay Connected With Us</p>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">YouTube</a>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <a href="#">Marketplace</a>
+      <a href="#">Sustainability Tips</a>
+      <a href="#">Community Forum</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div>
+      <h3>About</h3>
+      <a href="#">Our Mission</a>
+      <a href="#">SDG 13 Information</a>
+    </div>
+  </footer>
+
+</body>
+</html>
